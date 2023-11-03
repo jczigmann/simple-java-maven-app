@@ -11,14 +11,14 @@ set +x
 echo 'The following complex command extracts the value of the <name/> element'
 echo 'within <project/> of your Java/Maven project''s "pom.xml" file.'
 set -x
-NAME=`mvn help:evaluate -Dexpression=project.name | grep -v "^[\]*"| tr -d '\n'`
+NAME=`mvn help:evaluate -Dexpression=project.name | grep -v "^\[\]*"| tr -d '\n'`
 echo ">$NAME<"
 set +x
 
 echo 'The following complex command behaves similarly to the previous one but'
 echo 'extracts the value of the <version/> element within <project/> instead.'
 set -x
-VERSION=`mvn help:evaluate -Dexpression=project.version | grep "^[^\[]"| tr -d '\n'`
+VERSION=`mvn help:evaluate -Dexpression=project.version | grep -v "^\[\]*"| tr -d '\n'`
 echo ">$NAME<"
 set +x
 
